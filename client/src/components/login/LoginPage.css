@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&display=swap");
+
+:root {
+  --bg-top: #f7f9fd;
+  --bg-bottom: #eef3fb;
+  --card-bg: #ffffff;
+  --navy: #0f1f4d;
+  --text-muted: #5f6b8a;
+  --text-light: #8a94ad;
+  --border: #d3d9e6;
+  --border-hover: #b8c2d8;
+  --divider: #dfe4ee;
+  --error: #c62828;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Page + background ---------- */
+.login-page {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+  overflow: hidden;
+}
+
+/* needs public/bg-waves.svg */
+.login-bg {
+  position: absolute;
+  inset: 0;
+  background: url("/bg-waves.svg") center / cover no-repeat;
+}
+
+/* ---------- Layout ---------- */
+.login-main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+/* ---------- Card ---------- */
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: clamp(28px, 6vw, 40px) clamp(20px, 6vw, 36px);
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(15, 31, 77, 0.04),
+    0 12px 40px rgba(15, 31, 77, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.login-logo {
+  margin-bottom: 22px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(30px, 8vw, 38px);
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--navy);
+}
+
+.login-title {
+  margin: 0 0 8px;
+  font-size: clamp(20px, 5.5vw, 24px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--navy);
+}
+
+.login-subtitle {
+  margin: 0 0 26px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ---------- Google button ---------- */
+.google-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    transform 0.05s ease;
+}
+
+.google-btn:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 2px 10px rgba(15, 31, 77, 0.08);
+}
+
+.google-btn:active {
+  transform: scale(0.99);
+}
+
+.google-btn:focus-visible {
+  outline: 3px solid rgba(66, 133, 244, 0.35);
+  outline-offset: 2px;
+}
+
+.google-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.login-error {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: var(--error);
+}
+
+/* ---------- Divider ---------- */
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 24px 0 20px;
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--divider);
+}
+
+/* ---------- Note ---------- */
+.login-note {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.shield-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: #6b7a9c;
+}
+
+/* ---------- Footer ---------- */
+.login-footer {
+  position: relative;
+  z-index: 1;
+  padding: 20px 16px 24px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 380px) {
+  .login-note br {
+    display: none;
+  }
+}
